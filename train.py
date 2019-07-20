@@ -96,7 +96,7 @@ import spacy
 ################### Train Spacy NER.###########
 def train_spacy():
 
-    TRAIN_DATA = trim_entity_spans(convert_dataturks_to_spacy("traindata-small.json"))
+    TRAIN_DATA = trim_entity_spans(convert_dataturks_to_spacy("traindata.json"))
     nlp = spacy.blank('en')  # create blank Language class at start
 
     #nlp = spacy.load("/model")  #load the model to add up to it
@@ -118,7 +118,7 @@ def train_spacy():
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != 'ner']
     with nlp.disable_pipes(*other_pipes):  # only train NER
         optimizer = nlp.begin_training()
-        for itn in range(2):
+        for itn in range(5):
             print("Starting iteration " + str(itn))
             random.shuffle(TRAIN_DATA)
             losses = {}
