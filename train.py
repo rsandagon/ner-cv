@@ -37,10 +37,6 @@ def trim_entity_spans(data: list) -> list:
             valid_start = start
             valid_end = end
 
-            print('length', len(text))
-            print('start:', start)
-            print('end:', end)
-
             while valid_start < len(text) and invalid_span_tokens.match(
                     text[valid_start]):
                 valid_start += 1
@@ -57,12 +53,10 @@ def trim_entity_spans(data: list) -> list:
 def convert_dataturks_to_spacy(dataturks_JSON_FilePath):
     try:
         training_data = []
-        lines=[]
+        lines = []
 
         with open(dataturks_JSON_FilePath, 'r', encoding="utf8") as f:
             lines = f.readlines()
-
-
 
         for line in lines:
 
@@ -97,10 +91,10 @@ import spacy
 def train_spacy():
 
     TRAIN_DATA = trim_entity_spans(convert_dataturks_to_spacy("traindata.json"))
-    nlp = spacy.blank('en')  # create blank Language class at start
 
-    #nlp = spacy.load("/model")  #load the model to add up to it
+    # nlp = spacy.blank('en')  # create blank Language class at start
 
+    nlp = spacy.load("./model")  #load the model to add up to it
     # create the built-in pipeline components and add them to the pipeline
     # nlp.create_pipe works for built-ins that are registered with spaCy
     if 'ner' not in nlp.pipe_names:
@@ -118,7 +112,7 @@ def train_spacy():
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != 'ner']
     with nlp.disable_pipes(*other_pipes):  # only train NER
         optimizer = nlp.begin_training()
-        for itn in range(5):
+        for itn in range(10):
             print("Starting iteration " + str(itn))
             random.shuffle(TRAIN_DATA)
             losses = {}
@@ -135,7 +129,7 @@ def train_spacy():
     c = 0
     for text, annot in examples:
 
-        # f = open("resume"+str(c)+".txt", "w")
+        # f = open("resumes"+str(c)+".txt", "w")
         doc_to_test = nlp(text)
 
         # d = {}
@@ -161,8 +155,8 @@ def train_spacy():
             if(d[ent.label_][0]==0):
                 print("For Entity "+ent.label_+"\n")
                 print(classification_report(y_true, y_pred)+"\n")
-                (p, r, f, s)= precision_recall_fscore_support(y_true, y_pred, average='weighted')
-                a=accuracy_score(y_true,y_pred)
+                (p, r, f, s) = precision_recall_fscore_support(y_true, y_pred, average='weighted')
+                a = accuracy_score(y_true,y_pred)
                 d[ent.label_][0] = 1
                 d[ent.label_][1] += p
                 d[ent.label_][2] += r

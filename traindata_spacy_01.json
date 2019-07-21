@@ -1,0 +1,9 @@
+[(u,"Web Developer", {"entities": [(0, 3, "Roles"),(5, 13, "Roles")]}),
+ (u,"Engineer", {"entities": [(0, 7, "Roles",)]}),
+ (u,"Programmer", {"entities": [(0, 10, "Roles",)]}),
+ (u,"Consultant", {"entities": [(0, 10, "Roles",)]}),
+ (u,"Architect", {"entities": [(0, 9, "Roles",)]}),
+ (u,"Tech", {"entities": [(0, 4, "Roles",)]}),
+ (u,"Lead", {"entities": [(0, 4, "Roles",)]}),
+ (u,"DevOps", {"entities": [(0, 6, "Roles",)]})
+]
