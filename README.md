@@ -14,7 +14,7 @@ NLP Studies with CV Parsing
 ### Parsing Documents
 * Run `python parse.py` to parse resume files inside the resumes folder.
 
-##References:
+## References:
 * [Machine Learning](https://medium.com/tag/machine-learning?source=post)
 * [NLP](https://medium.com/tag/nlp?source=post)
 * [Named Entity
