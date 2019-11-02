@@ -13,7 +13,7 @@ numpy==1.16.4
 pdf2textbox==0.4.3
 pdfminer.six==20181108
 pdfminer2==20151206
-Pillow==6.1.0
+Pillow==6.2.0
 plac==0.9.6
 preshed==2.0.1
 pycryptodome==3.8.2
