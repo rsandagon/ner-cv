@@ -9,7 +9,7 @@ idna==2.8
 joblib==0.13.2
 lxml==4.3.4
 murmurhash==1.0.2
-numpy==1.16.4
+numpy==1.22.0
 pdf2textbox==0.4.3
 pdfminer.six==20181108
 pdfminer2==20151206
