@@ -7,7 +7,7 @@ docx2txt==0.8
 en-model==0.0.0
 idna==2.8
 joblib==0.13.2
-lxml==4.3.4
+lxml==4.9.1
 murmurhash==1.0.2
 numpy==1.16.4
 pdf2textbox==0.4.3
